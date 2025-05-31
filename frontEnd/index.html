@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muriel - Assistante maternelle</title>
+
+    <meta
+      name="description"
+      content="Site de Muriel, assistante maternelle sur Bayonne"
+    />
+    <meta name="author" content="Ryan Eymas" />
+
+    <meta
+      property="og:title"
+      content="Muriel - Assistante maternelle - Bayonne"
+    />
+    <meta property="og:image" content="/homepage-screenshot.png" />
+    <meta
+      property="og:url"
+      content="https://assistante-maternelle-bayonne.vercel.app/"
+    />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdyEyMrAAAAALa5xpH09_mFXWuOupsgMVkO3z6z"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tarteaucitronjs/1.12.0/tarteaucitron.min.js"></script>
+
+    <script type="text/javascript">
+      tarteaucitron.init({
+        privacyUrl: "",
+        bodyPosition: "top",
+        hashtag: "#tarteaucitron",
+        cookieName: "tarteaucitron",
+        orientation: "middle",
+        groupServices: false,
+        showDetailsOnClick: true,
+        serviceDefaultState: "wait",
+        showAlertSmall: false,
+        cookieslist: false,
+        closePopup: true,
+        showIcon: true,
+        iconPosition: "BottomRight",
+        adblocker: false,
+        DenyAllCta: true,
+        AcceptAllCta: true,
+        highPrivacy: true,
+        alwaysNeedConsent: false,
+        handleBrowserDNTRequest: false,
+        removeCredit: false,
+        moreInfoLink: true,
+        useExternalCss: false,
+        useExternalJs: false,
+        readmoreLink: "",
+        mandatory: true,
+        mandatoryCta: false,
+        googleConsentMode: true,
+        partnersList: true,
+      });
+
+      (tarteaucitron.job = tarteaucitron.job || []).push("recaptcha");
+    </script>
+  </body>
+</html>

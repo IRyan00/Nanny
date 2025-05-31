@@ -1,0 +1,12 @@
+footer {
+  background-color: var(--navfooter-color);
+}
+
+#submit-button {
+  background-color: var(--accent-color);
+  color: black;
+}
+
+.form-control {
+  background-color: var(--background-color);
+}

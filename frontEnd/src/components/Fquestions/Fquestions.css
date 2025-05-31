@@ -1,0 +1,14 @@
+.accordion-button,
+.accordion-body {
+  background-color: var(--primary-color);
+}
+
+#back {
+  background-color: var(--primary-color);
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--bs-accordion-active-color);
+  background-color: var(--primary-color);
+  box-shadow: var(--primary-color) 0 var(--bs-accordion-border-color);
+}
