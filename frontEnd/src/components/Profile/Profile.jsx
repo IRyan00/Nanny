@@ -40,7 +40,7 @@ const Profiles = ({ profiles }) => {
               </p>
               <div id="btn" className="mb-5 text-center">
                 {schools.map((diploma, index) => (
-                  <Badge key={index} className="m-2 bg-success fs-6">
+                  <Badge key={index} className="m-2 p-2 bg-success fs-6">
                     {diploma.trim()}
                   </Badge>
                 ))}

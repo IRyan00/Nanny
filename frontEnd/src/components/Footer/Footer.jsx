@@ -9,6 +9,7 @@ import {
   Alert,
   Spinner,
 } from "react-bootstrap";
+import { Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 
@@ -143,7 +144,7 @@ const Footer = () => {
                   variant="success"
                   type="submit"
                   disabled={isLoading}
-                  className="g-recaptcha col-4 my-3 border-0"
+                  className="g-recaptcha col-4 my-3 border-0 d-flex justify-content-center align-items-center"
                   data-sitekey="6LdyEyMrAAAAALa5xpH09_mFXWuOupsgMVkO3z6z"
                   data-callback="onSubmit"
                   data-action="submit"
@@ -151,7 +152,9 @@ const Footer = () => {
                   {isLoading ? (
                     <Spinner animation="border" size="sm" />
                   ) : (
-                    "Envoyer"
+                    <span className="text-white">
+                      <Send size={17} className="me-1" /> Envoyer
+                    </span>
                   )}
                 </Button>
               </div>

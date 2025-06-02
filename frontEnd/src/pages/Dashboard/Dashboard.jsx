@@ -10,6 +10,7 @@ import {
   ListGroup,
   Image,
 } from "react-bootstrap";
+import { SquarePen, Save, Ban } from "lucide-react";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -100,14 +101,18 @@ const Dashboard = () => {
       <Container>
         <h1 className="text-center py-5">Administration</h1>
         <h2 className="text-center h4 mb-4">Modifier mon profil</h2>
-        <ListGroup variant="flush" className="my-5 shadow rounded-3">
+        <ListGroup variant="flush" className="my-5 rounded-3">
           {profile.map((profile) => (
-            <ListGroup.Item key={profile._id} id="profile" className="p-3">
+            <ListGroup.Item
+              key={profile._id}
+              id="profile"
+              className="py-3 px-0"
+            >
               {editProfile && editProfile._id === profile._id ? (
                 <Row className="align-items-center">
                   <Col>
                     <Form onSubmit={updateProfile}>
-                      <Form.Group className="mb-2">
+                      <Form.Group className="mb-2 shadow">
                         <Form.Control
                           type="text"
                           value={editProfile.name}
@@ -119,7 +124,7 @@ const Dashboard = () => {
                           }
                         />
                       </Form.Group>
-                      <Form.Group className="mb-2">
+                      <Form.Group className="mb-2 shadow">
                         <Form.Control
                           as="textarea"
                           type="text"
@@ -134,7 +139,7 @@ const Dashboard = () => {
                         />
                       </Form.Group>
                       <Form.Control
-                        className="mb-2"
+                        className="mb-2 shadow"
                         value={editProfile.school}
                         onChange={(e) =>
                           setEditProfile({
@@ -144,6 +149,7 @@ const Dashboard = () => {
                         }
                       ></Form.Control>
                       <Form.Control
+                        className="shadow"
                         type="file"
                         onChange={(e) =>
                           setEditProfile({
@@ -155,16 +161,18 @@ const Dashboard = () => {
                       <Container className="d-flex justify-content-end">
                         <Button
                           type="submit"
-                          variant="success"
-                          className="mt-3"
+                          id="modif"
+                          className="mt-3 d-flex justify-content-center align-items-center shadow"
                         >
+                          <Save size={17} className="me-1" />
                           Enregistrer
                         </Button>
                         <Button
                           variant="secondary"
-                          className="mt-3 mx-2"
+                          className="mt-3 mx-2 d-flex justify-content-center align-items-center shadow"
                           onClick={() => setEditProfile(null)}
                         >
+                          <Ban size={17} className="me-1" />
                           Annuler
                         </Button>
                       </Container>
@@ -178,18 +186,18 @@ const Dashboard = () => {
                     fluid
                     src={profile.image}
                     alt={profile.name}
-                    className="rounded col-11 col-sm-9 col-md-7 col-lg-5 mx-auto"
+                    className="rounded col-11 col-sm-9 col-md-7 col-lg-5 mx-auto px-0"
                   />
-                  <p className="text-center my-5">{profile.desc}</p>
+                  <p className="text-center my-5 px-0">{profile.desc}</p>
 
-                  <p>Diplômes et formations : {profile.school}</p>
+                  <p className="text-center">{profile.school}</p>
                   <div className="my-5 d-flex flex-column gap-2 justify-content-center">
                     <Button
                       id="modif"
-                      className="col-5 mx-auto"
+                      className="col-5 mx-auto d-flex justify-content-center align-items-center shadow col-8 col-sm-6 col-md-4 col-lg-2"
                       onClick={() => setEditProfile(profile)}
                     >
-                      Modifier
+                      <SquarePen size={17} className="me-1" /> Modifier
                     </Button>
                   </div>
                 </Row>

@@ -1,5 +1,5 @@
 #profile {
-  background-color: var(--primary-color);
+  background-color: var(--background-color);
 }
 
 #modif {
@@ -9,4 +9,8 @@
 
 #textarea {
   height: 250px;
+}
+
+.form-control {
+  background-color: white;
 }

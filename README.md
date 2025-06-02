@@ -310,8 +310,8 @@ evalBackEnd/                             # Dossier racine du projet
 
 ## Déploiement
 
-### [ Backend - Render ](https://assistmat.onrender.com)
+### [ Backend - Render ](https://nanny-79jc.onrender.com)
 
-### [ Frontend - Vercel ](https://assist-mat.vercel.app/)
+### [ Frontend - Vercel ](https://nanny-jet.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
