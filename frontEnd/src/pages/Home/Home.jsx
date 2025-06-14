@@ -19,7 +19,7 @@ const Home = () => {
         <a
           href="#presentation"
           aria-label="Descendre dans la page pour en découvrir plus"
-          className="text-dark"
+          className="text-black"
         >
           <FaArrowDown size={25} />
         </a>

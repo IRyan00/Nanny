@@ -1,3 +1,7 @@
 .button {
   background-color: var(--secondary-color);
 }
+
+.spinner {
+  color: var(--primary-color);
+}

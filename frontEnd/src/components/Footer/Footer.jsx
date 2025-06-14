@@ -69,7 +69,11 @@ const Footer = () => {
       <Container>
         <Row>
           <Col md={9} className="mx-auto">
-            <h3 className="h2 text-center my-5">Contactez-moi</h3>
+            <h3 className="h2 text-center mt-5">Contactez-moi</h3>
+            <p className="text-center fst-italic fw-lighter mx-autotext-center mt-3 mb-5">
+              * Vos informations ne sont pas stockées, uniquement redirigées
+              vers ma boîte mail
+            </p>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Row className="mb-2">
                 <Col md={6} className="mb-2">
@@ -141,7 +145,7 @@ const Footer = () => {
                   variant="success"
                   type="submit"
                   disabled={isLoading}
-                  className="col-4 my-3 border-0 d-flex justify-content-center align-items-center"
+                  className="col-6 col-md-4 col-lg-3 col-xl-2 my-3 border-0 d-flex justify-content-center align-items-center"
                 >
                   {isLoading ? (
                     <Spinner animation="border" size="sm" />
