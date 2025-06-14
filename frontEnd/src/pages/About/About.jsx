@@ -20,44 +20,23 @@ const Profiles = () => {
     };
   };
 
-  // useEffect(() => {
-  //   document.title = "À propos";
-
-  //   const fetchProfiles = async () => {
-  //     try {
-  //       const response = await axios.get(`${API_URL}/api/profile/get`, {
-  //         headers: getAuthHeaders(),
-  //       });
-
-  //       if (response.data && response.data.profiles) {
-  //         setProfiles(response.data.profiles);
-  //       } else {
-  //         console.error("Format de réponse invalide: ", response.data);
-  //         setProfiles([]);
-  //       }
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-
-  //   fetchProfiles();
-  // }, []);
-
   useEffect(() => {
     document.title = "À propos";
 
     const fetchProfiles = async () => {
       try {
-        // Afficher la notif de loading
-        const loadingToastId = toast.info("Loading skills in progress...", {
-          theme: "light",
-          position: "bottom-left",
-          autoClose: false,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
+        const loadingToastId = toast.info(
+          "Chargement des informations en cours...",
+          {
+            theme: "light",
+            position: "bottom-left",
+            autoClose: false,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          }
+        );
 
         setIsLoading(true);
         const response = await axios.get(`${API_URL}/api/profile/get`, {
@@ -67,32 +46,34 @@ const Profiles = () => {
         if (response.data && response.data.profiles) {
           setProfiles(response.data.profiles);
 
-          // Fermer la notif de loading
           toast.dismiss(loadingToastId);
         } else {
-          console.error("Invalid response format:", response.data);
+          console.error("Format de réponse invalide:", response.data);
           setProfiles([]);
 
-          // Fermer la notif de loading
           toast.dismiss(loadingToastId);
 
-          // Afficher une notif d'erreur
-          toast.error("Error: Invalid response format", {
+          toast.error("Erreur: Format de réponse invalide", {
             theme: "light",
             position: "bottom-left",
             autoClose: 5000,
           });
         }
       } catch (error) {
-        console.error("Error when retrieving skills:", error);
+        console.error(
+          "Erreur lors de la récupération des informations:",
+          error
+        );
         setProfiles([]);
 
-        // Afficher une notif d'erreur
-        toast.error(`Error loading skills: ${error.message}`, {
-          theme: "light",
-          position: "bottom-left",
-          autoClose: 5000,
-        });
+        toast.error(
+          `Erreur lors du chargement des infomations: ${error.message}`,
+          {
+            theme: "light",
+            position: "bottom-left",
+            autoClose: 5000,
+          }
+        );
       } finally {
         setIsLoading(false);
       }

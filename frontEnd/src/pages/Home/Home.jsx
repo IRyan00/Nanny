@@ -10,16 +10,24 @@ const Home = () => {
     document.title = "Accueil";
   }, []);
 
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const target = document.getElementById("presentation");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <Carousel />
 
       <h1 className="text-center my-5 display-4 py-5">
-        {" "}
         <a
           href="#presentation"
           aria-label="Descendre dans la page pour en découvrir plus"
           className="text-black"
+          onClick={handleScroll}
         >
           <FaArrowDown size={25} />
         </a>

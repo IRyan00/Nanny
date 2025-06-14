@@ -71,8 +71,7 @@ const Footer = () => {
           <Col md={9} className="mx-auto">
             <h3 className="h2 text-center mt-5">Contactez-moi</h3>
             <p className="text-center fst-italic fw-lighter mx-autotext-center mt-3 mb-5">
-              * Vos informations ne sont pas stockées, uniquement redirigées
-              vers ma boîte mail
+              * Vos informations sont uniquement redirigées vers ma boîte mail
             </p>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Row className="mb-2">
