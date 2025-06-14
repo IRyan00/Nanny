@@ -81,6 +81,7 @@ const Login = () => {
                   <Button
                     variant="primary"
                     type="submit"
+                    aria-label="Se connecter"
                     className="w-100 py-2 mb-3"
                   >
                     Se connecter

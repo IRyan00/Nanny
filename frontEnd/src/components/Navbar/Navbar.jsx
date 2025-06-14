@@ -65,6 +65,7 @@ function CustomNavbar() {
                     Administration
                   </Nav.Link>
                   <Button
+                    aria-label="Bouton de déconnexion"
                     className="border-black"
                     variant="outline-black"
                     size="sm"
@@ -128,6 +129,7 @@ function CustomNavbar() {
                   Administration
                 </Nav.Link>
                 <Button
+                  aria-label="Bouton de déconnexion"
                   variant="outline-black"
                   size="sm"
                   onClick={handleLogout}

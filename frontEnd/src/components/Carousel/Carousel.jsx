@@ -13,7 +13,7 @@ const CarouselPage = () => {
             <img
               className="d-block w-100 carousel-image"
               src={img1}
-              alt="First slide"
+              alt="Première image du carousel"
               style={{
                 height: "70vh",
                 objectFit: "cover",
@@ -37,7 +37,7 @@ const CarouselPage = () => {
             <img
               className="d-block w-100 carousel-image"
               src={img2}
-              alt="Second slide"
+              alt="Deuxième image du carousel"
               style={{
                 height: "70vh",
                 objectFit: "cover",
@@ -61,7 +61,7 @@ const CarouselPage = () => {
             <img
               className="d-block w-100 carousel-image"
               src={img3}
-              alt="Third slide"
+              alt="Troisième image du carousel"
               style={{
                 height: "70vh",
                 objectFit: "cover",

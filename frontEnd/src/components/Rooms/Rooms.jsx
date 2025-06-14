@@ -28,7 +28,7 @@ const Rooms = () => {
             <img
               className="img-fluid rounded-3 col-12 col-lg-8 mx-auto d-flex zoomable-img"
               src="https://www.sille-le-guillaume.fr/medias/2019/07/Resized_20190618_060806_5775.jpg"
-              alt="Salon"
+              alt="Image du salon"
               onClick={() =>
                 handleZoom(
                   "https://www.sille-le-guillaume.fr/medias/2019/07/Resized_20190618_060806_5775.jpg"
@@ -45,7 +45,7 @@ const Rooms = () => {
             <img
               className="img-fluid rounded-3 col-12 col-lg-8 mx-auto d-flex zoomable-img"
               src="https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/vdn_864w/2018/09/13/node_448583/39729763/public/2018/09/13/B9716913696Z.1_20180913181512_000%2BGE5C1F5J9.1-0.jpg?itok=CEHEFqUj1536855332"
-              alt="Chambre"
+              alt="Image de la chambre consacrée aux enfants accueillis"
               onClick={() =>
                 handleZoom(
                   "https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/vdn_864w/2018/09/13/node_448583/39729763/public/2018/09/13/B9716913696Z.1_20180913181512_000%2BGE5C1F5J9.1-0.jpg?itok=CEHEFqUj1536855332"
@@ -59,7 +59,7 @@ const Rooms = () => {
       {/* Lightbox */}
       {zoomedSrc && (
         <div className="lightbox" onClick={closeZoom}>
-          <img src={zoomedSrc} alt="Zoom" className="lightbox-img" />
+          <img src={zoomedSrc} alt="Image zommée" className="lightbox-img" />
         </div>
       )}
     </>

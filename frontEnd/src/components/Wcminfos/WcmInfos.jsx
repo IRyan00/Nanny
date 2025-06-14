@@ -199,7 +199,11 @@ const WcmInfos = () => {
         </Modal.Header>
         <Modal.Body>{modalContent.body}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
+          <Button
+            aria-label="Fermer l'élément"
+            variant="secondary"
+            onClick={() => setShowModal(false)}
+          >
             Fermer
           </Button>
         </Modal.Footer>

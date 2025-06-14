@@ -39,7 +39,11 @@ function Example() {
 
   return (
     <>
-      <Button className="bg-success mt-5 border-0" onClick={handleShow}>
+      <Button
+        aria-label="Bouton pour ajouter un commentaire"
+        className="bg-success mt-5 border-0"
+        onClick={handleShow}
+      >
         Ajouter un commentaire
       </Button>
 
@@ -86,10 +90,18 @@ function Example() {
               </p>
             </Form.Group>
             <Modal.Footer>
-              <Button variant="success" type="submit">
+              <Button
+                aria-label="Ajouter le commentaire"
+                variant="success"
+                type="submit"
+              >
                 Ajouter
               </Button>
-              <Button variant="danger" onClick={handleClose}>
+              <Button
+                aria-label="Annuler l'ajout du commentaire"
+                variant="danger"
+                onClick={handleClose}
+              >
                 Annuler
               </Button>
             </Modal.Footer>

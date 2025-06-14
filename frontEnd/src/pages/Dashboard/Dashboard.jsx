@@ -161,6 +161,7 @@ const Dashboard = () => {
                       <Container className="d-flex justify-content-end">
                         <Button
                           type="submit"
+                          aria-label="Enregistrer les modifications"
                           id="modif"
                           className="mt-3 d-flex justify-content-center align-items-center shadow"
                         >
@@ -169,6 +170,7 @@ const Dashboard = () => {
                         </Button>
                         <Button
                           variant="secondary"
+                          aria-label="Annuler les modifications"
                           className="mt-3 mx-2 d-flex justify-content-center align-items-center shadow"
                           onClick={() => setEditProfile(null)}
                         >
@@ -194,6 +196,7 @@ const Dashboard = () => {
                   <div className="my-5 d-flex flex-column gap-2 justify-content-center">
                     <Button
                       id="modif"
+                      aria-label="Modifier le profile"
                       className="col-5 mx-auto d-flex justify-content-center align-items-center shadow col-8 col-sm-6 col-md-4 col-lg-2"
                       onClick={() => setEditProfile(profile)}
                     >
