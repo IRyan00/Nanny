@@ -13,7 +13,7 @@ const upload = multer({ dest: "uploads/" });
 
 const router = express.Router();
 
-router.post("/create", protect, upload.single("imageFile"), createProfile);
+router.post("/create", protect, upload.single("imageFile"), createProfile); //a del
 router.get("/get", getProfile);
 router.put("/update/:id", protect, upload.single("imageFile"), updateProfile);
 

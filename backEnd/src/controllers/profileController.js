@@ -58,6 +58,7 @@ export const getProfile = async (req, res, next) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
 export const updateProfile = async (req, res, next) => {
   try {
     const { name, desc, school } = req.body;

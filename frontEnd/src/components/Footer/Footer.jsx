@@ -34,9 +34,6 @@ const Footer = () => {
   const onSubmit = async (data) => {
     setIsLoading(true);
 
-    // captacha
-    document.getElementById("demo-form").submit();
-
     const token = await executeRecaptcha("contactForm");
     if (token) {
       emailjs
@@ -144,15 +141,12 @@ const Footer = () => {
                   variant="success"
                   type="submit"
                   disabled={isLoading}
-                  className="g-recaptcha col-4 my-3 border-0 d-flex justify-content-center align-items-center"
-                  data-sitekey="6LdyEyMrAAAAALa5xpH09_mFXWuOupsgMVkO3z6z"
-                  data-callback="onSubmit"
-                  data-action="submit"
+                  className="col-4 my-3 border-0 d-flex justify-content-center align-items-center"
                 >
                   {isLoading ? (
                     <Spinner animation="border" size="sm" />
                   ) : (
-                    <span className="text-white">
+                    <span className="text-black">
                       <Send size={17} className="me-1" /> Envoyer
                     </span>
                   )}

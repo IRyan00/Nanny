@@ -7,15 +7,12 @@ const JWT_SECRET = process.env.JWT_SECRET;
 export const protect = asyncHandler(async (req, res, next) => {
   let token;
 
-  // Cherche d'abord dans les headers (Authorization: Bearer xxx)
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {
     token = req.headers.authorization.split(" ")[1];
-  }
-  // Sinon, cherche dans les cookies (jwt)
-  else if (req.cookies.jwt) {
+  } else if (req.cookies.jwt) {
     token = req.cookies.jwt;
   }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Carousel from "../../components/Carousel/Carousel.jsx";
 import WcmInfos from "../../components/Wcminfos/WcmInfos.jsx";
 import { FaArrowDown } from "react-icons/fa";
