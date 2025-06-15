@@ -56,13 +56,29 @@ const Dashboard = () => {
 
   const updateProfile = async (e) => {
     e.preventDefault();
-    if (!editProfile.name || !editProfile.desc || !editProfile.school) {
+    if (
+      // !editProfile.name ||
+      !editProfile.p1 ||
+      !editProfile.p2 ||
+      !editProfile.p3 ||
+      !editProfile.p4 ||
+      !editProfile.p5 ||
+      !editProfile.p6 ||
+      !editProfile.p7 ||
+      !editProfile.school
+    ) {
       alert("Veuillez remplir tous les champs");
       return;
     }
     const formData = new FormData();
-    formData.append("name", editProfile.name);
-    formData.append("desc", editProfile.desc);
+    // formData.append("name", editProfile.name);
+    formData.append("p1", editProfile.p1);
+    formData.append("p2", editProfile.p2);
+    formData.append("p3", editProfile.p3);
+    formData.append("p4", editProfile.p4);
+    formData.append("p5", editProfile.p5);
+    formData.append("p6", editProfile.p6);
+    formData.append("p7", editProfile.p7);
     formData.append("school", editProfile.school);
 
     if (editProfile.imageFile) {
@@ -112,7 +128,7 @@ const Dashboard = () => {
                 <Row className="align-items-center">
                   <Col>
                     <Form onSubmit={updateProfile}>
-                      <Form.Group className="mb-2 shadow">
+                      {/* <Form.Group className="mb-2 shadow">
                         <Form.Control
                           type="text"
                           value={editProfile.name}
@@ -123,17 +139,101 @@ const Dashboard = () => {
                             })
                           }
                         />
+                      </Form.Group> */}
+                      <Form.Group className="mb-2 shadow">
+                        <Form.Control
+                          as="textarea"
+                          type="text"
+                          id="textarea"
+                          value={editProfile.p1}
+                          onChange={(e) =>
+                            setEditProfile({
+                              ...editProfile,
+                              p1: e.target.value,
+                            })
+                          }
+                        />
                       </Form.Group>
                       <Form.Group className="mb-2 shadow">
                         <Form.Control
                           as="textarea"
                           type="text"
                           id="textarea"
-                          value={editProfile.desc}
+                          value={editProfile.p2}
                           onChange={(e) =>
                             setEditProfile({
                               ...editProfile,
-                              desc: e.target.value,
+                              p2: e.target.value,
+                            })
+                          }
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-2 shadow">
+                        <Form.Control
+                          as="textarea"
+                          type="text"
+                          id="textarea"
+                          value={editProfile.p3}
+                          onChange={(e) =>
+                            setEditProfile({
+                              ...editProfile,
+                              p3: e.target.value,
+                            })
+                          }
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-2 shadow">
+                        <Form.Control
+                          as="textarea"
+                          type="text"
+                          id="textarea"
+                          value={editProfile.p4}
+                          onChange={(e) =>
+                            setEditProfile({
+                              ...editProfile,
+                              p4: e.target.value,
+                            })
+                          }
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-2 shadow">
+                        <Form.Control
+                          as="textarea"
+                          type="text"
+                          id="textarea"
+                          value={editProfile.p5}
+                          onChange={(e) =>
+                            setEditProfile({
+                              ...editProfile,
+                              p5: e.target.value,
+                            })
+                          }
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-2 shadow">
+                        <Form.Control
+                          as="textarea"
+                          type="text"
+                          id="textarea"
+                          value={editProfile.p6}
+                          onChange={(e) =>
+                            setEditProfile({
+                              ...editProfile,
+                              p6: e.target.value,
+                            })
+                          }
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-2 shadow">
+                        <Form.Control
+                          as="textarea"
+                          type="text"
+                          id="textarea"
+                          value={editProfile.p7}
+                          onChange={(e) =>
+                            setEditProfile({
+                              ...editProfile,
+                              p7: e.target.value,
                             })
                           }
                         />
@@ -183,14 +283,22 @@ const Dashboard = () => {
                 </Row>
               ) : (
                 <Row className="align-items-center col-11 mx-auto ">
-                  <h3 className="h3 text-center my-5">{profile.name}</h3>
+                  {/* <h3 className="h3 text-center my-5">{profile.name}</h3> */}
                   <Image
                     fluid
                     src={profile.image}
                     alt={profile.name}
                     className="rounded col-11 col-sm-9 col-md-7 col-lg-5 mx-auto px-0"
                   />
-                  <p className="text-center my-5 px-0">{profile.desc}</p>
+                  <Container className="text-justify">
+                    <p className="mt-5 px-0">{profile.p1}</p>
+                    <p className="px-0">{profile.p2}</p>
+                    <p className="px-0">{profile.p3}</p>
+                    <p className="px-0">{profile.p4}</p>
+                    <p className="px-0">{profile.p5}</p>
+                    <p className="px-0">{profile.p6}</p>
+                    <p className="mb-5 px-0">{profile.p7}</p>
+                  </Container>
 
                   <p className="text-center">{profile.school}</p>
                   <div className="my-5 d-flex flex-column gap-2 justify-content-center">

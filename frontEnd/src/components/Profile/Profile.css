@@ -5,3 +5,12 @@
 .spinner {
   color: var(--primary-color);
 }
+
+.badge-custom {
+  background-color: var(--primary-color) !important;
+  color: black;
+}
+
+.text-justify {
+  text-align: justify;
+}

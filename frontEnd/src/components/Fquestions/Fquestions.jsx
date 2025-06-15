@@ -5,33 +5,32 @@ const Fquestions = () => {
   const faqs = [
     {
       id: 1,
-      question: "Quels sont vos horaires d’accueil ?",
+      question: "Êtes-vous agréée et assurée ?",
       answer:
-        "Je travaille du lundi au vendredi, de 7h30 à 18h30. Des ajustements peuvent être envisagés selon les besoins spécifiques des familles, dans la limite du raisonnable.",
+        "Oui, je suis agréée par le Conseil Départemental, qui est actuellement en cours de renouvellement. Je dispose également d’une assurance responsabilité civile professionnelle couvrant l’ensemble de mon activité.",
     },
     {
       id: 2,
-      question: "Acceptez-vous les enfants en périscolaire ?",
-      answer:
-        "Oui, j’accueille les enfants en périscolaire, selon les disponibilités. Cela comprend les temps avant et après l’école, ainsi que les vacances scolaires.",
-    },
-    {
-      id: 3,
-      question: "Proposez-vous des repas faits maison ?",
-      answer:
-        "Oui, les repas et les collations sont préparés maison, avec des produits frais et adaptés à l’âge de chaque enfant. En cas d’allergie ou de régime particulier, un menu personnalisé est prévu.",
-    },
-    {
-      id: 4,
       question: "Comment se passe l’adaptation de l’enfant ?",
       answer:
         "L’adaptation se fait progressivement sur une à deux semaines. Cela permet à l’enfant, comme aux parents, de s’habituer au nouvel environnement en toute sérénité.",
     },
     {
-      id: 5,
-      question: "Êtes-vous agréée et assurée ?",
+      id: 3,
+      question: "Proposez-vous des repas faits maison ?",
       answer:
-        "Oui, je suis agréée par le Conseil Départemental et je dispose d’une assurance responsabilité civile professionnelle couvrant l’ensemble de mon activité.",
+        "Oui, les repas et les goûters sont préparés maison, avec des produits frais et adaptés à l’âge de chaque enfant. En cas d’allergie ou de régime particulier, un menu personnalisé est prévu.",
+    },
+    {
+      id: 4,
+      question: "Acceptez-vous les enfants en périscolaire ?",
+      answer:
+        "Non, je n’accepte pas les enfants en périscolaire. Mon accueil est réservé aux tout-petits uniquement, afin de respecter leur rythme et de maintenir un environnement calme et adapté à leurs besoins.",
+    },
+    {
+      id: 5,
+      question: "Cinquieme question ?",
+      answer: "Cinquieme réponse.",
     },
   ];
 

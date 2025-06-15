@@ -8,9 +8,13 @@
 }
 
 #textarea {
-  height: 250px;
+  height: 100px;
 }
 
 .form-control {
   background-color: white;
+}
+
+.text-justify {
+  text-align: justify;
 }

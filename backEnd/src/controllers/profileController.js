@@ -31,11 +31,17 @@ export const createProfile = async (req, res, next) => {
 
     fs.unlinkSync(req.file.path);
 
-    const { name, desc, school } = req.body;
+    const { name, p1, p2, p3, p4, p5, p6, p7, school } = req.body;
 
     const newProfile = new Profile({
       name,
-      desc,
+      p1,
+      p2,
+      p3,
+      p4,
+      p5,
+      p6,
+      p7,
       school,
       image: result.secure_url,
       public_id: result.public_id,
@@ -61,7 +67,7 @@ export const getProfile = async (req, res, next) => {
 
 export const updateProfile = async (req, res, next) => {
   try {
-    const { name, desc, school } = req.body;
+    const { name, p1, p2, p3, p4, p5, p6, p7, school } = req.body;
     const { id: profileId } = req.params;
 
     const originalProfile = await Profile.findById(profileId);
@@ -86,7 +92,13 @@ export const updateProfile = async (req, res, next) => {
       profileId,
       {
         name,
-        desc,
+        p1,
+        p2,
+        p3,
+        p4,
+        p5,
+        p6,
+        p7,
         school,
         public_id,
         image,

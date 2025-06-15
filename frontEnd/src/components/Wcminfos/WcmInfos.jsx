@@ -15,6 +15,8 @@ import {
   Shrub,
   Pen,
   Brush,
+  Carrot,
+  Landmark,
 } from "lucide-react";
 
 const WcmInfos = () => {
@@ -60,7 +62,10 @@ const WcmInfos = () => {
             id="info-card"
             className="zoom-hover rounded-3 p-4 col-11 col-sm-5 col-lg-3 shadow"
             onClick={() =>
-              handleShowModal("Âge des enfants accueillis", "De 0 à 3 ans")
+              handleShowModal(
+                "Âge des enfants accueillis",
+                "J'accueille des enfants de 0 à 3 ans"
+              )
             }
           >
             <Row className="align-items-center">
@@ -79,7 +84,10 @@ const WcmInfos = () => {
             id="info-card"
             className="zoom-hover rounded-3 p-4 col-11 col-sm-5 col-lg-3 shadow"
             onClick={() =>
-              handleShowModal("Jours d'accueil", "Du Mardi au Vendredi")
+              handleShowModal(
+                "Jours d'accueil",
+                "Je les accueille du Mardi au Vendredi"
+              )
             }
           >
             <Row className="align-items-center">
@@ -98,7 +106,10 @@ const WcmInfos = () => {
             id="info-card"
             className="zoom-hover rounded-3 p-4 col-11 col-sm-5 col-lg-3 shadow"
             onClick={() =>
-              handleShowModal("Horaires d'accueil", "De 8h00 à 18h30")
+              handleShowModal(
+                "Horaires d'accueil",
+                "Les horaires sont de 8h00 à 18h30"
+              )
             }
           >
             <Row className="align-items-center">
@@ -121,9 +132,18 @@ const WcmInfos = () => {
                 "Tarifs & aides",
                 <Row>
                   <Col>
-                    <p>∙ 4.50€ de l'heure</p>
-                    <p>∙ 2.00€ de charges</p>
-                    <p className="m-0">∙ 3.00€ de repas (si non fourni)</p>
+                    <div className="mb-4">
+                      <h6 className="h6">Coûts/jour</h6>
+                      <p>∙ 4.50€ de l'heure</p>
+                      <p>∙ 4.00€ d'indemnités d'entretien</p>
+                      <p>∙ 3.00€ repas + goûter </p>
+                    </div>
+                    <div>
+                      <h6 className="h6">Aides possibles</h6>
+                      <p>∙ Aide 1</p>
+                      <p>∙ Aide 2</p>
+                      <p className="mb-0">∙ Aide 3 </p>
+                    </div>
                   </Col>
                 </Row>
               )
@@ -135,7 +155,7 @@ const WcmInfos = () => {
                 <h5 className="mb-5">Tarifs & aides</h5>
                 <p className="mb-0">
                   4.50€ de l'heure
-                  <br /> 2.00€ de charges
+                  <br /> 4.00€ de charges
                 </p>
                 <p className="mt-4 mb-0"></p>
               </Col>
@@ -157,7 +177,10 @@ const WcmInfos = () => {
                     <h5 className="mb-3">Pic-nic</h5>
 
                     <Book size={50} className="p-0 mb-1" />
-                    <h5>Bibliothèque</h5>
+                    <h5 className="mb-3">Bibliothèque</h5>
+
+                    <Carrot size={50} className="p-0 mb-1" />
+                    <h5>Jardin</h5>
                   </Col>
 
                   <Col xs={5}>
@@ -168,7 +191,10 @@ const WcmInfos = () => {
                     <h5 className="mb-3">Peinture</h5>
 
                     <Pen size={50} className="p-0 mb-1" />
-                    <h5>Dessin</h5>
+                    <h5 className="mb-3">Dessin</h5>
+
+                    <Landmark size={50} className="p-0 mb-1" />
+                    <h5>Musée</h5>
                   </Col>
                 </Row>
               )
@@ -179,8 +205,8 @@ const WcmInfos = () => {
                 <Activity size={50} className="p-0 mb-2" />
                 <h5 className="mb-5">Activités proposées</h5>
                 <p className="mb-0 row mx-auto justify-content-center align-items-center">
-                  <Puzzle size={50} className="col-6 p-0 mb-1" />
-                  <Book size={45} className="col-6 p-0 mb-1" />
+                  <Shrub size={50} className="col-6 p-0 mb-1" />
+                  <Brush size={45} className="col-6 p-0 mb-1" />
                 </p>
                 <p className="mt-4 mb-0"></p>
               </Col>
