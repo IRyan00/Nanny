@@ -17,9 +17,9 @@ const StaticAbout = () => {
             c’est un métier de famille, fait avec cœur.
           </p>
           <p className="lead">
-            J’ai exercé à Bordeaux, ma ville natale, puis à Cambo et Bayonne
-            depuis 2016. <br /> J’offre un accueil familial, simple et serein,
-            où chacun trouve sa place. Les enfants jouent, explorent,
+            J’ai exercé à Bordeaux, ma ville natale, puis à Cambo-les-Bains et
+            Bayonne depuis 2016. <br /> J’offre un accueil familial, simple et
+            serein, où chacun trouve sa place. Les enfants jouent, explorent,
             participent à des sorties, des ateliers, et pratiquent des activités
             variées en intérieur comme en extérieur, selon leur rythme. Il y a
             aussi des temps calmes, de la lecture, et des moments de repos.

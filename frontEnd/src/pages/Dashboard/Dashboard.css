@@ -18,3 +18,11 @@
 .text-justify {
   text-align: justify;
 }
+
+.btn {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}

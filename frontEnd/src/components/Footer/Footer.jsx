@@ -141,15 +141,14 @@ const Footer = () => {
                 <Button
                   aria-label="Envoyer le contenu du formulaire de contact"
                   id="submit-button"
-                  variant="success"
                   type="submit"
                   disabled={isLoading}
-                  className="col-6 col-md-4 col-lg-3 col-xl-2 my-3 border-0 d-flex justify-content-center align-items-center"
+                  className="send col-6 col-md-4 col-lg-3 col-xl-2 my-3 border-0 d-flex justify-content-center align-items-center"
                 >
                   {isLoading ? (
                     <Spinner animation="border" size="sm" />
                   ) : (
-                    <span className="text-black">
+                    <span>
                       <Send size={17} className="me-1" /> Envoyer
                     </span>
                   )}

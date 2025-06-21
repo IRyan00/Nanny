@@ -8,7 +8,11 @@
 }
 
 .accordion-button:not(.collapsed) {
-  color: var(--bs-accordion-active-color);
+  color: black;
   background-color: var(--primary-color);
   box-shadow: var(--primary-color) 0 var(--bs-accordion-border-color);
+}
+
+.accordion-button:focus {
+  box-shadow: var(--primary-color);
 }

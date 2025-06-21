@@ -27,7 +27,6 @@ export const createProfile = async (req, res, next) => {
     const result = await cloudinary.uploader.upload(req.file.path, {
       folder: "profile",
     });
-    console.log("Image sent to cloudinary:", result);
 
     fs.unlinkSync(req.file.path);
 

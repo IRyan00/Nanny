@@ -1,9 +1,3 @@
-/* .offcanvas-header .btn-close {
-  color: black;
-  opacity: 1;
-  filter: invert(1);
-} */
-
 .offcanvas-header,
 .offcanvas-body {
   background-color: var(--navfooter-color);
