@@ -5,6 +5,7 @@ import JWT from "jsonwebtoken";
 // const saltRounds = 10;
 const JWT_SECRET = process.env.JWT_SECRET;
 
+// REGISTER
 // export const register = async (req, res, next) => {
 //   try {
 //     const { name, password } = req.body;
@@ -25,6 +26,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 //   }
 // };
 
+// GENERATE TOKEN
 const generateToken = async (_id) => {
   const token = JWT.sign({ _id }, JWT_SECRET, { expiresIn: "30d" });
   return token;
@@ -56,4 +58,10 @@ export const login = async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "Server error", error: error.message });
   }
+};
+
+// LOGOUT
+export const logout = (req, res) => {
+  res.clearCookie("jwt");
+  res.status(200).json({ message: "Logged out successfully" });
 };

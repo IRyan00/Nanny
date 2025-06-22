@@ -1,19 +1,13 @@
 import Profile from "../models/Profile.js";
+import cloudinary from "../config/cloudinary.js";
 
 import fs from "fs";
-
-import { v2 as cloudinary } from "cloudinary";
 
 if (!fs.existsSync("uploads")) {
   fs.mkdirSync("uploads");
 }
 
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
-});
-
+// CREATE
 export const createProfile = async (req, res, next) => {
   try {
     if (!req.file) {
@@ -54,6 +48,7 @@ export const createProfile = async (req, res, next) => {
   }
 };
 
+// GET ALL
 export const getProfile = async (req, res, next) => {
   try {
     const profiles = await Profile.find();
@@ -64,6 +59,7 @@ export const getProfile = async (req, res, next) => {
   }
 };
 
+// UPDATE
 export const updateProfile = async (req, res, next) => {
   try {
     const { name, p1, p2, p3, p4, p5, p6, p7, school } = req.body;
