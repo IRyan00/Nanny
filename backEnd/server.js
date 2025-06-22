@@ -18,7 +18,12 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(helmet());
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/review", reviewRoutes);
