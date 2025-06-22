@@ -8,17 +8,14 @@ import "react-toastify/dist/ReactToastify.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
+const api = axios.create({
+  baseURL: API_URL,
+  withCredentials: true,
+});
+
 const Profiles = () => {
   const [profiles, setProfiles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  const getAuthHeaders = () => {
-    const token = localStorage.getItem("token");
-    return {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    };
-  };
 
   useEffect(() => {
     document.title = "À propos";
@@ -39,20 +36,15 @@ const Profiles = () => {
         );
 
         setIsLoading(true);
-        const response = await axios.get(`${API_URL}/api/profile/get`, {
-          headers: getAuthHeaders(),
-        });
+        const response = await api.get(`${API_URL}/api/profile/get`);
 
         if (response.data && response.data.profiles) {
           setProfiles(response.data.profiles);
-
           toast.dismiss(loadingToastId);
         } else {
           console.error("Format de réponse invalide:", response.data);
           setProfiles([]);
-
           toast.dismiss(loadingToastId);
-
           toast.error("Erreur: Format de réponse invalide", {
             theme: "light",
             position: "bottom-left",
@@ -65,9 +57,8 @@ const Profiles = () => {
           error
         );
         setProfiles([]);
-
         toast.error(
-          `Erreur lors du chargement des infomations: ${error.message}`,
+          `Erreur lors du chargement des informations: ${error.message}`,
           {
             theme: "light",
             position: "bottom-left",
@@ -78,6 +69,7 @@ const Profiles = () => {
         setIsLoading(false);
       }
     };
+
     fetchProfiles();
   }, []);
 

@@ -6,6 +6,12 @@ import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import "./Login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
+
+const api = axios.create({
+  baseURL: API_URL,
+  withCredentials: true,
+});
+
 const Login = () => {
   useEffect(() => {
     document.title = "Admin Connexion";
@@ -21,11 +27,9 @@ const Login = () => {
 
   const onSubmit = async (formData) => {
     try {
-      const response = await axios.post(`${API_URL}/api/auth/login`, {
+      await api.post("/api/auth/login", {
         ...formData,
       });
-
-      localStorage.setItem("token", response.data.token);
 
       navigation("/");
       window.location.reload();
@@ -56,7 +60,7 @@ const Login = () => {
                       {...register("name", { required: true })}
                       isInvalid={errors.name}
                     />
-                    {errors.email && (
+                    {errors.name && (
                       <Form.Control.Feedback type="invalid">
                         Ce champ est requis
                       </Form.Control.Feedback>

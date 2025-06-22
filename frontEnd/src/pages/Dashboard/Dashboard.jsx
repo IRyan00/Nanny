@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Dashboard.css";
 import {
@@ -14,27 +14,23 @@ import { SquarePen, Save, Ban } from "lucide-react";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
+// Création d'une instance Axios avec URL de base et cookies activés
+const api = axios.create({
+  baseURL: API_URL,
+  withCredentials: true,
+});
+
 const Dashboard = () => {
   const [profile, setProfile] = useState([]);
   const [editProfile, setEditProfile] = useState(null);
 
-  const getAuthHeaders = () => {
-    const token = localStorage.getItem("token");
-    return {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "multipart/form-data",
-    };
-  };
-
   useEffect(() => {
     document.title = "Dashboard";
 
+    // Récupération des données de profil à l'affichage du composant
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/profile/get`, {
-          headers: getAuthHeaders(),
-        });
-
+        const response = await api.get(`${API_URL}/api/profile/get`);
         if (response.data && response.data.profiles) {
           setProfile(response.data.profiles);
         } else {
@@ -54,10 +50,12 @@ const Dashboard = () => {
     fetchProfile();
   }, []);
 
+  // Soumission du formulaire pour mettre à jour un profil
   const updateProfile = async (e) => {
     e.preventDefault();
+
+    // Vérifie que tous les champs sont remplis
     if (
-      // !editProfile.name ||
       !editProfile.p1 ||
       !editProfile.p2 ||
       !editProfile.p3 ||
@@ -70,8 +68,9 @@ const Dashboard = () => {
       alert("Veuillez remplir tous les champs");
       return;
     }
+
+    // Préparation des données à envoyer, y compris fichier image s'il existe
     const formData = new FormData();
-    // formData.append("name", editProfile.name);
     formData.append("p1", editProfile.p1);
     formData.append("p2", editProfile.p2);
     formData.append("p3", editProfile.p3);
@@ -90,16 +89,18 @@ const Dashboard = () => {
     }
 
     try {
-      const response = await axios.put(
+      // Envoi de la requête de mise à jour
+      const response = await api.put(
         `${API_URL}/api/profile/update/${editProfile._id}`,
         formData,
         {
           headers: {
-            ...getAuthHeaders(),
+            "Content-Type": "multipart/form-data",
           },
         }
       );
 
+      // Mise à jour de l'état avec le nouveau profil modifié
       const updatedProfile = profile.map((profile) =>
         profile._id === response.data.profile._id
           ? response.data.profile
@@ -128,18 +129,6 @@ const Dashboard = () => {
                 <Row className="align-items-center">
                   <Col>
                     <Form onSubmit={updateProfile}>
-                      {/* <Form.Group className="mb-2 shadow">
-                        <Form.Control
-                          type="text"
-                          value={editProfile.name}
-                          onChange={(e) =>
-                            setEditProfile({
-                              ...editProfile,
-                              name: e.target.value,
-                            })
-                          }
-                        />
-                      </Form.Group> */}
                       <Form.Group className="mb-2 shadow">
                         <Form.Control
                           as="textarea"
@@ -282,8 +271,7 @@ const Dashboard = () => {
                   </Col>
                 </Row>
               ) : (
-                <Row className="align-items-center col-11 mx-auto ">
-                  {/* <h3 className="h3 text-center my-5">{profile.name}</h3> */}
+                <Row className="align-items-center col-11 mx-auto">
                   <Image
                     fluid
                     src={profile.image}

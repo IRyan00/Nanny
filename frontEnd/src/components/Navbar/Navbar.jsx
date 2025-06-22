@@ -2,23 +2,53 @@ import { Navbar, Nav, Container, Button, Offcanvas } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navbar.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+const api = axios.create({
+  baseURL: API_URL,
+  withCredentials: true,
+});
+
 function CustomNavbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
+    const checkAuth = async () => {
+      try {
+        const authResponse = await api.get("/api/auth/check");
+        setIsLoggedIn(authResponse.data.authenticated);
+
+        try {
+          await api.get("/api/auth/check-admin");
+          setIsAdmin(true);
+        } catch (error) {
+          setIsAdmin(false);
+        }
+      } catch (error) {
+        setIsLoggedIn(false);
+        setIsAdmin(false);
+      }
+    };
+
+    checkAuth();
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-    navigate("/login");
+  const handleLogout = async () => {
+    try {
+      await api.post("/api/auth/logout");
+      setIsLoggedIn(false);
+      setIsAdmin(false);
+      navigate("/login");
+    } catch (error) {
+      console.error("Erreur lors de la déconnexion:", error);
+    }
   };
 
   const handleContactScroll = () => {
@@ -61,9 +91,15 @@ function CustomNavbar() {
                 </Nav.Link>
               ) : (
                 <div className="d-flex gap-2 flex-column flex-lg-row align-items-stretch align-items-lg-center mt-lg-0">
-                  <Nav.Link as={Link} to="/dashboard" className="px-3 fw-bold">
-                    Administration
-                  </Nav.Link>
+                  {isAdmin && (
+                    <Nav.Link
+                      as={Link}
+                      to="/dashboard"
+                      className="px-3 fw-bold"
+                    >
+                      Administration
+                    </Nav.Link>
+                  )}
                   <Button
                     aria-label="Bouton de déconnexion"
                     className="border-black"
@@ -120,14 +156,16 @@ function CustomNavbar() {
               </Nav.Link>
             ) : (
               <>
-                <Nav.Link
-                  as={Link}
-                  to="/dashboard"
-                  className="text-black fw-bold text-end"
-                  onClick={() => setShowSidebar(false)}
-                >
-                  Administration
-                </Nav.Link>
+                {isAdmin && (
+                  <Nav.Link
+                    as={Link}
+                    to="/dashboard"
+                    className="text-black fw-bold text-end"
+                    onClick={() => setShowSidebar(false)}
+                  >
+                    Administration
+                  </Nav.Link>
+                )}
                 <Button
                   aria-label="Bouton de déconnexion"
                   variant="outline-black"
