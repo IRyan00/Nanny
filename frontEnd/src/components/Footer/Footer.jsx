@@ -169,7 +169,21 @@ const Footer = () => {
           <Col className="text-center">
             <p>
               &copy; {new Date().getFullYear()} Muriel - Assistante maternelle.
-              Tous droits réservés.
+              Tous droits réservés |{" "}
+              <a href="/mlegales" className="text-decoration-none text-black">
+                Mentions Légales
+              </a>{" "}
+              |{" "}
+              <a href="/cgu" className="text-decoration-none text-black">
+                Conditions générales
+              </a>{" "}
+              |{" "}
+              <a
+                href="/confidential"
+                className="text-decoration-none text-black"
+              >
+                Politique de confidentialité
+              </a>
             </p>
           </Col>
         </Row>

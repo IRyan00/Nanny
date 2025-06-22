@@ -8,6 +8,9 @@ import Login from "./pages/Login/Login.jsx";
 import About from "./pages/About/About.jsx";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import ProtectDashboard from "../utils/ProtectDashboard.jsx";
+import MLegales from "./pages/MLegales/MLegales.jsx";
+import CGU from "./pages/CGU/CGU.jsx";
+import Confidential from "./pages/Confidential/Confidential.jsx";
 
 function App() {
   return (
@@ -27,6 +30,10 @@ function App() {
               </ProtectDashboard>
             }
           />
+
+          <Route path="/mlegales" element={<MLegales />} />
+          <Route path="/cgu" element={<CGU />} />
+          <Route path="/confidential" element={<Confidential />} />
 
           <Route path="/login" element={<Login />} />
         </Routes>

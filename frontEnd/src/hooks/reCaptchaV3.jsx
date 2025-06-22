@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const useReCaptchaV3 = (sitekey) => {
   const [isRecaptchaReady, setIsRecaptchaReady] = useState(false);
