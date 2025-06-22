@@ -18,9 +18,20 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(helmet());
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://nanny-jet.vercel.app",
+];
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
