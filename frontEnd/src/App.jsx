@@ -26,7 +26,6 @@ function App() {
             element={
               <ProtectDashboard>
                 <Dashboard />
-                <ProtectDashboard />
               </ProtectDashboard>
             }
           />
