@@ -304,7 +304,7 @@ evalBackEnd/                             # Dossier racine du projet
 | Method | Path                     | Desc                         |
 | :----- | :----------------------- | :--------------------------- |
 | POST   | /api/auth/login          | Connecter un utilisateur     |
-| GET    | /api/auth/logout         | Déconnecter un utilisateur   |
+| POST   | /api/auth/logout         | Déconnecter un utilisateur   |
 | GET    | /api/auth/check          | Vérifier l'état de connexion |
 | GET    | /api/auth/check-admin    | Vérifier si admin            |
 | GET    | /api/profile/get         | Afficher le profil           |

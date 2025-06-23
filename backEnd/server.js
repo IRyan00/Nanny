@@ -8,7 +8,7 @@ import cors from "cors";
 import connectDB from "./src/config/db.js";
 
 import authRoutes from "./src/routes/authRoutes.js";
-import reviewRoutes from "./src/routes/reviewRoutes.js";
+// import reviewRoutes from "./src/routes/reviewRoutes.js";
 import profileRoutes from "./src/routes/profileRoutes.js";
 
 const app = express();
@@ -37,7 +37,7 @@ app.use(
 );
 
 app.use("/api/auth", authRoutes);
-app.use("/api/review", reviewRoutes);
+// app.use("/api/review", reviewRoutes);
 app.use("/api/profile", profileRoutes);
 
 connectDB();

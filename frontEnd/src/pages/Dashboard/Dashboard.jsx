@@ -160,6 +160,66 @@ const Dashboard = () => {
                           as="textarea"
                           type="text"
                           id="textarea"
+                          value={editProfile.p3}
+                          onChange={(e) =>
+                            setEditProfile({
+                              ...editProfile,
+                              p1: e.target.value,
+                            })
+                          }
+                        />
+                      </Form.Group>
+
+                      <Form.Group className="mb-2 shadow">
+                        <Form.Control
+                          as="textarea"
+                          type="text"
+                          id="textarea"
+                          value={editProfile.p4}
+                          onChange={(e) =>
+                            setEditProfile({
+                              ...editProfile,
+                              p1: e.target.value,
+                            })
+                          }
+                        />
+                      </Form.Group>
+
+                      <Form.Group className="mb-2 shadow">
+                        <Form.Control
+                          as="textarea"
+                          type="text"
+                          id="textarea"
+                          value={editProfile.p5}
+                          onChange={(e) =>
+                            setEditProfile({
+                              ...editProfile,
+                              p1: e.target.value,
+                            })
+                          }
+                        />
+                      </Form.Group>
+
+                      <Form.Group className="mb-2 shadow">
+                        <Form.Control
+                          as="textarea"
+                          type="text"
+                          id="textarea"
+                          value={editProfile.p6}
+                          onChange={(e) =>
+                            setEditProfile({
+                              ...editProfile,
+                              p1: e.target.value,
+                            })
+                          }
+                        />
+                      </Form.Group>
+
+                      <Form.Group className="mb-2 shadow">
+                        <Form.Control
+                          as="textarea"
+                          type="text"
+                          id="textarea"
                           value={editProfile.p7}
                           onChange={(e) =>
                             setEditProfile({
