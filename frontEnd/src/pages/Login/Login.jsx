@@ -17,8 +17,6 @@ const Login = () => {
     document.title = "Admin Connexion";
   }, []);
 
-  const navigation = useNavigate();
-
   const {
     register,
     handleSubmit,
@@ -31,8 +29,7 @@ const Login = () => {
         ...formData,
       });
 
-      navigation("/");
-      // window.location.reload();
+      window.location.href = "/";
     } catch (error) {
       console.error("Connexion échouée:", {
         message: error.message,
