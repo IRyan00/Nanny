@@ -12,13 +12,11 @@ import {
 import { Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
-
 import useReCaptchaV3 from "../../hooks/reCaptchaV3";
 
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
-
 const VITE_RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 const Footer = () => {
@@ -27,8 +25,10 @@ const Footer = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const [alert, setAlert] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
+
   const executeRecaptcha = useReCaptchaV3(VITE_RECAPTCHA_SITE_KEY);
 
   const onSubmit = async (data) => {
@@ -70,6 +70,7 @@ const Footer = () => {
         <Row>
           <Col md={9} className="mx-auto">
             <h3 className="h2 text-center my-5">Contactez-moi</h3>
+            {/* CONTACT FORM */}
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Row className="mb-2">
                 <Col md={6} className="mb-2">
@@ -151,6 +152,7 @@ const Footer = () => {
                   )}
                 </Button>
               </div>
+              {/* ALERT */}
               {alert && (
                 <Alert
                   className="text-center col-8 mx-auto"
@@ -162,6 +164,7 @@ const Footer = () => {
             </Form>
           </Col>
         </Row>
+        {/* COPYRIGHTS & BLABLA */}
         <Row className="mt-5">
           <Col className="text-center">
             <p>

@@ -60,12 +60,14 @@ function CustomNavbar() {
 
   return (
     <>
+      {/* DESKTOP */}
       <Navbar expand="lg" className="py-3 sticky-top">
         <Container>
           <Navbar.Brand as={Link} to="/" className="fw-bold">
             Assistante maternelle
           </Navbar.Brand>
 
+          {/* SIDEBAR BUTTON */}
           <Button
             onClick={() => setShowSidebar(true)}
             aria-label="Afficher le menu de navigation pour mobile"
@@ -90,6 +92,7 @@ function CustomNavbar() {
                   Contact
                 </Nav.Link>
               ) : (
+                // ADMIN
                 <div className="d-flex gap-2 flex-column flex-lg-row align-items-stretch align-items-lg-center mt-lg-0">
                   {isAdmin && (
                     <Nav.Link
@@ -116,6 +119,7 @@ function CustomNavbar() {
         </Container>
       </Navbar>
 
+      {/* MOBILE SIDEBAR */}
       <Offcanvas
         show={showSidebar}
         onHide={() => setShowSidebar(false)}
@@ -156,6 +160,7 @@ function CustomNavbar() {
               </Nav.Link>
             ) : (
               <>
+                {/* ADMIN */}
                 {isAdmin && (
                   <Nav.Link
                     as={Link}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./WcmInfos.css";
 import { Container, Row, Col, Modal, Button } from "react-bootstrap";
 import {
@@ -35,7 +35,9 @@ const WcmInfos = () => {
           Informations sur <br /> l'accueil des enfants
         </h2>
 
+        {/* CARDS */}
         <Container className="my-5 p-0 col-12 mx-auto row gap-5">
+          {/* PLACES */}
           <Container
             id="info-card"
             className="zoom-hover rounded-3 p-4 col-11 col-sm-5 col-lg-4 shadow"
@@ -53,11 +55,11 @@ const WcmInfos = () => {
                 <p className="mb-0">
                   Toutes les places <br /> ont été pourvues
                 </p>
-                <p className="mt-4 mb-0"></p>
               </Col>
             </Row>
           </Container>
 
+          {/* AGE */}
           <Container
             id="info-card"
             className="zoom-hover rounded-3 p-4 col-11 col-sm-5 col-lg-3 shadow"
@@ -75,11 +77,11 @@ const WcmInfos = () => {
                 <p className="mb-0">
                   De 0 <br /> à 3 ans
                 </p>
-                <p className="mt-4 mb-0"></p>
               </Col>
             </Row>
           </Container>
 
+          {/* DAYS */}
           <Container
             id="info-card"
             className="zoom-hover rounded-3 p-4 col-11 col-sm-5 col-lg-3 shadow"
@@ -97,11 +99,11 @@ const WcmInfos = () => {
                 <p className=" mb-0">
                   Du Mardi <br /> au Vendredi
                 </p>
-                <p className="mt-4 mb-0"></p>
               </Col>
             </Row>
           </Container>
 
+          {/* HOURS */}
           <Container
             id="info-card"
             className="zoom-hover rounded-3 p-4 col-11 col-sm-5 col-lg-3 shadow"
@@ -119,11 +121,11 @@ const WcmInfos = () => {
                 <p className="mb-0">
                   De 8h00 <br /> à 18h30
                 </p>
-                <p className="mt-4 mb-0"></p>
               </Col>
             </Row>
           </Container>
 
+          {/* MONEY */}
           <Container
             id="info-card"
             className="zoom-hover rounded-3 p-4 col-11 col-sm-5 col-lg-3 shadow"
@@ -157,11 +159,11 @@ const WcmInfos = () => {
                   4.50€ de l'heure
                   <br /> 4.00€ de charges
                 </p>
-                <p className="mt-4 mb-0"></p>
               </Col>
             </Row>
           </Container>
 
+          {/* ACTIVITIES */}
           <Container
             id="info-card"
             className="zoom-hover rounded-3 p-4 col-11 col-sm-5 col-lg-4 shadow"
@@ -208,22 +210,25 @@ const WcmInfos = () => {
                   <Shrub size={50} className="col-6 p-0 mb-1" />
                   <Brush size={45} className="col-6 p-0 mb-1" />
                 </p>
-                <p className="mt-4 mb-0"></p>
               </Col>
             </Row>
           </Container>
         </Container>
+
         <p className="text-center fst-italic fw-lighter col-11 mx-auto">
           * Cliquez sur les différents panneaux pour avoir plus d'informations{" "}
           <MousePointerClick size={20} />
         </p>
       </Container>
 
+      {/* MODAL */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
         <Modal.Header closeButton>
           <Modal.Title>{modalContent.title}</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>{modalContent.body}</Modal.Body>
+
         <Modal.Footer>
           <Button
             aria-label="Fermer l'élément"

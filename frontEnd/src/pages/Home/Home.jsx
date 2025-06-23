@@ -37,8 +37,6 @@ const Home = () => {
 
       <WcmInfos />
 
-      {/* <hr className="my-5 col-10 mx-auto" /> */}
-
       <Fquestions />
 
       <div className="justify-content-center"></div>

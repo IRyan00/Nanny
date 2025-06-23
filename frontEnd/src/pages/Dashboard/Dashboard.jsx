@@ -14,7 +14,6 @@ import { SquarePen, Save, Ban } from "lucide-react";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-// Création d'une instance Axios avec URL de base et cookies activés
 const api = axios.create({
   baseURL: API_URL,
   withCredentials: true,
@@ -27,7 +26,6 @@ const Dashboard = () => {
   useEffect(() => {
     document.title = "Dashboard";
 
-    // Récupération des données de profil à l'affichage du composant
     const fetchProfile = async () => {
       try {
         const response = await api.get(`${API_URL}/api/profile/get`);
@@ -50,11 +48,9 @@ const Dashboard = () => {
     fetchProfile();
   }, []);
 
-  // Soumission du formulaire pour mettre à jour un profil
   const updateProfile = async (e) => {
     e.preventDefault();
 
-    // Vérifie que tous les champs sont remplis
     if (
       !editProfile.p1 ||
       !editProfile.p2 ||
@@ -69,7 +65,6 @@ const Dashboard = () => {
       return;
     }
 
-    // Préparation des données à envoyer, y compris fichier image s'il existe
     const formData = new FormData();
     formData.append("p1", editProfile.p1);
     formData.append("p2", editProfile.p2);
@@ -89,7 +84,6 @@ const Dashboard = () => {
     }
 
     try {
-      // Envoi de la requête de mise à jour
       const response = await api.put(
         `${API_URL}/api/profile/update/${editProfile._id}`,
         formData,
@@ -100,7 +94,6 @@ const Dashboard = () => {
         }
       );
 
-      // Mise à jour de l'état avec le nouveau profil modifié
       const updatedProfile = profile.map((profile) =>
         profile._id === response.data.profile._id
           ? response.data.profile
@@ -118,6 +111,7 @@ const Dashboard = () => {
       <Container>
         <h1 className="text-center py-5">Administration</h1>
         <h2 className="text-center h4 mb-4">Modifier mon profil</h2>
+
         <ListGroup variant="flush" className="my-5 rounded-3">
           {profile.map((profile) => (
             <ListGroup.Item
@@ -125,9 +119,11 @@ const Dashboard = () => {
               id="profile"
               className="py-3 px-0"
             >
+              {/* EDIT PROFILE */}
               {editProfile && editProfile._id === profile._id ? (
                 <Row className="align-items-center">
                   <Col>
+                    {/* FORM */}
                     <Form onSubmit={updateProfile}>
                       <Form.Group className="mb-2 shadow">
                         <Form.Control
@@ -143,6 +139,7 @@ const Dashboard = () => {
                           }
                         />
                       </Form.Group>
+
                       <Form.Group className="mb-2 shadow">
                         <Form.Control
                           as="textarea"
@@ -157,62 +154,7 @@ const Dashboard = () => {
                           }
                         />
                       </Form.Group>
-                      <Form.Group className="mb-2 shadow">
-                        <Form.Control
-                          as="textarea"
-                          type="text"
-                          id="textarea"
-                          value={editProfile.p3}
-                          onChange={(e) =>
-                            setEditProfile({
-                              ...editProfile,
-                              p3: e.target.value,
-                            })
-                          }
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-2 shadow">
-                        <Form.Control
-                          as="textarea"
-                          type="text"
-                          id="textarea"
-                          value={editProfile.p4}
-                          onChange={(e) =>
-                            setEditProfile({
-                              ...editProfile,
-                              p4: e.target.value,
-                            })
-                          }
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-2 shadow">
-                        <Form.Control
-                          as="textarea"
-                          type="text"
-                          id="textarea"
-                          value={editProfile.p5}
-                          onChange={(e) =>
-                            setEditProfile({
-                              ...editProfile,
-                              p5: e.target.value,
-                            })
-                          }
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-2 shadow">
-                        <Form.Control
-                          as="textarea"
-                          type="text"
-                          id="textarea"
-                          value={editProfile.p6}
-                          onChange={(e) =>
-                            setEditProfile({
-                              ...editProfile,
-                              p6: e.target.value,
-                            })
-                          }
-                        />
-                      </Form.Group>
+
                       <Form.Group className="mb-2 shadow">
                         <Form.Control
                           as="textarea"
@@ -227,6 +169,7 @@ const Dashboard = () => {
                           }
                         />
                       </Form.Group>
+
                       <Form.Control
                         className="mb-2 shadow"
                         value={editProfile.school}
@@ -237,6 +180,7 @@ const Dashboard = () => {
                           })
                         }
                       ></Form.Control>
+
                       <Form.Control
                         className="shadow"
                         type="file"
@@ -247,6 +191,8 @@ const Dashboard = () => {
                           })
                         }
                       />
+
+                      {/* BUTTONS */}
                       <Container className="d-flex justify-content-end">
                         <Button
                           type="submit"
@@ -271,6 +217,7 @@ const Dashboard = () => {
                   </Col>
                 </Row>
               ) : (
+                // DISPLAY
                 <Row className="align-items-center col-11 mx-auto">
                   <Image
                     fluid
@@ -278,6 +225,7 @@ const Dashboard = () => {
                     alt={profile.name}
                     className="rounded col-11 col-sm-9 col-md-7 col-lg-5 mx-auto px-0"
                   />
+
                   <Container className="text-justify">
                     <p className="mt-5 px-0">{profile.p1}</p>
                     <p className="px-0">{profile.p2}</p>
@@ -289,6 +237,8 @@ const Dashboard = () => {
                   </Container>
 
                   <p className="text-center">{profile.school}</p>
+
+                  {/* EDIT BUTTON */}
                   <div className="my-5 d-flex flex-column gap-2 justify-content-center">
                     <Button
                       id="modif"

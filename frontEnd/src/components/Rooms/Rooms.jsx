@@ -62,19 +62,18 @@ function Rooms() {
               idéal pour les siestes et les temps calmes. Tout est pensé pour
               que les enfants s’y sentent en confiance, comme à la maison.
             </p>
-            <Row className="gy-4">
+            <Row className="gy-4 justify-content-center">
               {gallery.map((image, index) => (
                 <Col
                   key={index}
-                  xs={12}
+                  xs={11}
                   md={6}
-                  lg={4}
                   className="d-flex justify-content-center"
                 >
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="img-fluid rounded-3 zoomable-img"
+                    className="img-fluid rounded-3 zoomable-img d-flex"
                     onClick={() => handleZoom(image.src)}
                   />
                 </Col>
@@ -84,7 +83,7 @@ function Rooms() {
         </Row>
       </Container>
 
-      {/* Lightbox */}
+      {/* ZOOMBOX */}
       {zoomedSrc && (
         <div className="lightbox" onClick={closeZoom}>
           <img src={zoomedSrc} alt="Image zoomée" className="lightbox-img" />

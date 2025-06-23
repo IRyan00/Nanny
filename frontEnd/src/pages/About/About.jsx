@@ -78,6 +78,7 @@ const Profiles = () => {
       <div
         style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
       >
+        {/* NOTIF */}
         <ToastContainer />
         {isLoading ? (
           <div className="d-flex justify-content-center align-items-center flex-grow-1">
@@ -86,6 +87,7 @@ const Profiles = () => {
             </Spinner>
           </div>
         ) : (
+          // PROFILE
           <Container>
             <Row className="justify-content-center">
               {profiles.map((profile) => (
@@ -96,6 +98,7 @@ const Profiles = () => {
             </Row>
             <hr className="col-11 mx-auto" />
             <Row className="justify-content-center">
+              {/* ROOMS */}
               <Rooms />
             </Row>
           </Container>

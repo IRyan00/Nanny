@@ -8,8 +8,8 @@ import {
 } from "../controllers/profileController.js";
 
 import { protect } from "../middlewares/authMiddleware.js";
-import { profileValidation } from "../validations/profileValidation.js";
-import { validateRequest } from "../middlewares/validateRequest.js";
+// import { profileValidation } from "../validations/profileValidation.js";
+// import { validateRequest } from "../middlewares/validateRequest.js";
 
 const upload = multer({ dest: "uploads/" });
 

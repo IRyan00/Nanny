@@ -2,6 +2,7 @@ import "./Fquestions.css";
 import { Accordion, Container } from "react-bootstrap";
 
 const Fquestions = () => {
+  // QUESTIONS DB
   const faqs = [
     {
       id: 1,

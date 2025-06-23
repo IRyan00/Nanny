@@ -26,7 +26,7 @@ const ProtectDashboard = ({ children }) => {
   }, []);
 
   if (isAuthorized === null) {
-    return <div>Loading...</div>;
+    return <div>Chargement...</div>;
   }
 
   return isAuthorized ? children : <Navigate to="/" />;
