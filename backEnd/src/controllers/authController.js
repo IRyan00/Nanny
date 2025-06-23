@@ -50,7 +50,7 @@ export const login = async (req, res) => {
     const token = await generateToken(userLogin._id);
     res.cookie("jwt", token, {
       httpOnly: true,
-      // secure: true,
+      secure: true,
     });
 
     res.status(201).json({ userLogin, token });
