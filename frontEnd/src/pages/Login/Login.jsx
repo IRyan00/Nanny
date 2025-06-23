@@ -32,7 +32,7 @@ const Login = () => {
       });
 
       navigation("/");
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.error("Connexion échouée:", {
         message: error.message,
