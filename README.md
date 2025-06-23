@@ -21,7 +21,6 @@ C'est un projet qui a été réalisé pour une assistante maternelle durant mon 
 - [Dépendances](#dépendances)
   - [Frontend](#frontend)
   - [Backend](#backend)
-- [Test admin](#test-admin)
 - [Arborescence](#arborescence)
 - [Tests et Visualisation](#tests-et-visualisation)
 - [Déploiement](#déploiement)
