@@ -9,7 +9,7 @@ import { validateRequest } from "../middlewares/validateRequest.js";
 const router = express.Router();
 
 router.post("/login", loginValidator, validateRequest, login);
-router.post("/logout", logout);
+router.get("/logout", logout);
 
 // IS AUTHENTICATED
 router.get("/check", protect, (req, res) => {

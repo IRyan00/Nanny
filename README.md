@@ -30,19 +30,18 @@ C'est un projet qui a été réalisé pour une assistante maternelle durant mon 
 
 ## Fonctionnalités
 
-- Gestion des utilisateurs (création, affichage, modification, suppression, connexion)
-- Gestion des compétences (création, affichage, modification, suppression)
 - Authentification sécurisée (JWT & bcrypt)
+- Gestion du profil (affichage et modification via dashboard)
 - Gestion des rôles (user, admin) et protection de routes
-- Logs pour suivre les actions des utilisateurs
-- Formulaire de connexion avec Google reCAPTCHA
+- Formulaire de contact et envoie de mail avec emailjs
+- Anti spam avec Google reCAPTCHA v3
 - Gestion des cookies avec Tarteaucitron.js
 
 ## Technologies utilisées
 
 <div align="center">
 
-[![My Skills](https://skillicons.dev/icons?i=vscode,git,github,postman,nodejs,npm,javascript,express,mongodb,vite,react,bootstrap,vercel)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=figma,vscode,git,github,npm,nodejs,javascript,express,mongodb,postman,react,vite,css,bootstrap,vercel)](https://skillicons.dev)
 
 </div>
 
@@ -61,7 +60,7 @@ C'est un projet qui a été réalisé pour une assistante maternelle durant mon 
 1.  Cloner le répertoire :
 
     ```sh
-    git clone https://github.com/IRyan00/assistMat.git
+    git clone https://github.com/IRyan00/Nanny.git
     ```
 
 <br/>
@@ -118,7 +117,7 @@ C'est un projet qui a été réalisé pour une assistante maternelle durant mon 
 
     ```ini
     cd backEnd
-    npm start
+    npm run dev
 
     cd frontEnd
     npm run dev
@@ -139,6 +138,7 @@ C'est un projet qui a été réalisé pour une assistante maternelle durant mon 
     "dotenv": "^16.5.0",
     "express": "^4.21.2",
     "express-async-handler": "^1.2.0",
+    "express-validator": "^7.2.1",
     "fs": "^0.0.1-security",
     "helmet": "^8.1.0",
     "joi": "^17.13.3",
@@ -162,10 +162,12 @@ C'est un projet qui a été réalisé pour une assistante maternelle durant mon 
     "react-bootstrap": "^2.10.9",
     "react-bootstrap-icons": "^1.11.5",
     "react-dom": "^19.0.0",
+    "react-google-recaptcha": "^3.1.0",
     "react-hook-form": "^7.54.2",
     "react-icons": "^5.5.0",
-    "react-router-dom": "^7.4.0"
-  },
+    "react-router-dom": "^7.4.0",
+    "react-toastify": "^11.0.5"
+  }
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -300,11 +302,14 @@ evalBackEnd/                             # Dossier racine du projet
 </br>
 <div align="center">
 
-| Method | Path                     | Desc                     |
-| :----- | :----------------------- | :----------------------- |
-| POST   | /api/auth/login          | Connecter un utilisateur |
-| GET    | /api/profile/get         | Afficher le profile      |
-| PUT    | /api/profile/updates/:id | Modifier le profile      |
+| Method | Path                     | Desc                         |
+| :----- | :----------------------- | :--------------------------- |
+| POST   | /api/auth/login          | Connecter un utilisateur     |
+| GET    | /api/auth/logout         | Déconnecter un utilisateur   |
+| GET    | /api/auth/check          | Vérifier l'état de connexion |
+| GET    | /api/auth/check-admin    | Vérifier si admin            |
+| GET    | /api/profile/get         | Afficher le profil           |
+| PUT    | /api/profile/updates/:id | Modifier le profil           |
 
 </div>
 
