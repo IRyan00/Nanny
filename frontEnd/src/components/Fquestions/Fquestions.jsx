@@ -29,8 +29,9 @@ const Fquestions = () => {
     },
     {
       id: 5,
-      question: "Cinquieme question ?",
-      answer: "Cinquieme réponse.",
+      question: "Comment se passent les échanges avec les parents ?",
+      answer:
+        "Je privilégie une communication ouverte et régulière avec les parents. Chaque jour, un petit compte-rendu est fait pour partager les moments clés de la journée (repas, sieste, humeur, activités…). En cas de besoin, je reste disponible pour échanger plus en détail, dans une relation de confiance et de transparence.",
     },
   ];
 

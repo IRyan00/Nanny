@@ -1,8 +1,13 @@
-import React, { useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import "./Rooms.css";
 
-const Rooms = () => {
+import salon from "../../assets/rooms/salon.webp";
+import chambre1 from "../../assets/rooms/chambre1.webp";
+import chambre2 from "../../assets/rooms/chambre2.webp";
+import chambreM from "../../assets/rooms/chambreM.webp";
+
+function Rooms() {
   const [zoomedSrc, setZoomedSrc] = useState(null);
 
   const handleZoom = (src) => {
@@ -13,45 +18,68 @@ const Rooms = () => {
     setZoomedSrc(null);
   };
 
+  const gallery = [
+    { src: chambre1, alt: "Image de la chambre 1" },
+    { src: chambre2, alt: "Image de la chambre 2" },
+    { src: chambreM, alt: "Image de la chambre principale" },
+  ];
+
   return (
     <>
       <Container className="col-11 mx-auto">
         <Row className="mb-5">
-          <h1 className="text-center my-5">Pièces de vie</h1>
+          <h1 className="text-center my-5">Les pièces de vie</h1>
 
           <div className="mb-5 text-center">
-            <h2>Salon</h2>
-            <p className="my-5">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore
-              alias iste dolorum similique numquam unde...
+            <h2 className="h2">
+              Un salon chaleureux et adapté aux tout-petits
+            </h2>
+            <p className="text-justify my-5">
+              Le salon est un espace central, pensé pour le bien-être et l’éveil
+              des enfants. Lumineux, sécurisé et aménagé avec soin, il accueille
+              petits jeux, coins lecture, tapis d’éveil et moments de détente.
+              Les enfants y évoluent librement dans un cadre rassurant et
+              convivial, propice aux échanges, aux rires et aux découvertes.
+              C’est un lieu de vie où chaque jour se construit dans la douceur
+              et la bienveillance.
             </p>
             <img
               className="img-fluid rounded-3 col-12 col-lg-8 mx-auto d-flex zoomable-img"
-              src="https://www.sille-le-guillaume.fr/medias/2019/07/Resized_20190618_060806_5775.jpg"
+              src={salon}
               alt="Image du salon"
-              onClick={() =>
-                handleZoom(
-                  "https://www.sille-le-guillaume.fr/medias/2019/07/Resized_20190618_060806_5775.jpg"
-                )
-              }
+              onClick={() => handleZoom(salon)}
             />
           </div>
 
-          <div className="mb-5 text-center">
-            <h2>Chambre</h2>
-            <p className="my-5">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit...
+          <div className="my-5 text-center">
+            <h2>Une chambre douce et reposante pour les petits</h2>
+            <p className="text-justify my-5">
+              La chambre réservée aux enfants accueillis est un cocon calme et
+              apaisant, spécialement aménagé pour favoriser le sommeil et le
+              repos. Chaque enfant y dispose de son propre lit, dans un
+              environnement sécurisé, propre et confortable. Les couleurs
+              douces, la lumière tamisée et le silence respecté en font un lieu
+              idéal pour les siestes et les temps calmes. Tout est pensé pour
+              que les enfants s’y sentent en confiance, comme à la maison.
             </p>
-            <img
-              className="img-fluid rounded-3 col-12 col-lg-8 mx-auto d-flex zoomable-img"
-              src="https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/vdn_864w/2018/09/13/node_448583/39729763/public/2018/09/13/B9716913696Z.1_20180913181512_000%2BGE5C1F5J9.1-0.jpg?itok=CEHEFqUj1536855332"
-              alt="Image de la chambre consacrée aux enfants accueillis"
-              onClick={() =>
-                handleZoom(
-                  "https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/vdn_864w/2018/09/13/node_448583/39729763/public/2018/09/13/B9716913696Z.1_20180913181512_000%2BGE5C1F5J9.1-0.jpg?itok=CEHEFqUj1536855332"
-                )
-              }
-            />
+            <Row className="gy-4">
+              {gallery.map((image, index) => (
+                <Col
+                  key={index}
+                  xs={12}
+                  md={6}
+                  lg={4}
+                  className="d-flex justify-content-center"
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="img-fluid rounded-3 zoomable-img"
+                    onClick={() => handleZoom(image.src)}
+                  />
+                </Col>
+              ))}
+            </Row>
           </div>
         </Row>
       </Container>
@@ -59,11 +87,11 @@ const Rooms = () => {
       {/* Lightbox */}
       {zoomedSrc && (
         <div className="lightbox" onClick={closeZoom}>
-          <img src={zoomedSrc} alt="Image zommée" className="lightbox-img" />
+          <img src={zoomedSrc} alt="Image zoomée" className="lightbox-img" />
         </div>
       )}
     </>
   );
-};
+}
 
 export default Rooms;

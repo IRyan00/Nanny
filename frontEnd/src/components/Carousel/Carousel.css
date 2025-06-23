@@ -2,3 +2,8 @@
 .carousel-control-prev-icon {
   background-color: black;
 }
+
+.carousel-background {
+  position: relative;
+  z-index: auto;
+}

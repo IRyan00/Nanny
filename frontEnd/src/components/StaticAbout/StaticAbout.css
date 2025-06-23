@@ -1,3 +1,11 @@
 #presentation {
   background-color: var(--primary-color);
 }
+
+.aboutlink {
+  transition: all 0.3s ease !important;
+}
+
+.aboutlink:hover {
+  color: var(--primary-color);
+}

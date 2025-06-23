@@ -1,11 +1,11 @@
 import { Carousel, Container } from "react-bootstrap";
-import img1 from "../../assets/carouselImg/img1.jpg";
-import img2 from "../../assets/carouselImg/img2.jpg";
-import img3 from "../../assets/carouselImg/img3.jpg";
+import img1 from "../../assets/carouselImg/img1.webp";
+import img2 from "../../assets/carouselImg/img2.webp";
+import img3 from "../../assets/carouselImg/img3.webp";
 
 const CarouselPage = () => {
   return (
-    <Container fluid className="px-0">
+    <Container fluid className="index px-0 carousel-background">
       <Carousel fade indicators={true} className="bg-dark shadow">
         <Carousel.Item>
           <div className="carousel-image-container">
@@ -21,14 +21,6 @@ const CarouselPage = () => {
               }}
             />
           </div>
-          {/* <Carousel.Caption className="mb-5">
-            <h2 className="display-4 fw-bold text-white mb-3">
-              Développement Web Créatif
-            </h2>
-            <p className="lead text-white">
-              Création d'applications web modernes et innovantes
-            </p>
-          </Carousel.Caption> */}
         </Carousel.Item>
 
         <Carousel.Item>
@@ -45,14 +37,6 @@ const CarouselPage = () => {
               }}
             />
           </div>
-          {/* <Carousel.Caption className="mb-5">
-            <h2 className="display-4 fw-bold text-white mb-3">
-              Solutions Sur Mesure
-            </h2>
-            <p className="lead text-white">
-              Des applications adaptées à vos besoins spécifiques
-            </p>
-          </Carousel.Caption> */}
         </Carousel.Item>
 
         <Carousel.Item>
@@ -69,14 +53,6 @@ const CarouselPage = () => {
               }}
             />
           </div>
-          {/* <Carousel.Caption className="mb-5">
-            <h2 className="display-4 fw-bold text-white mb-3">
-              Performance & Qualité
-            </h2>
-            <p className="lead text-white">
-              Des applications robustes et optimisées
-            </p>
-          </Carousel.Caption> */}
         </Carousel.Item>
       </Carousel>
     </Container>

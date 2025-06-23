@@ -215,7 +215,7 @@ const WcmInfos = () => {
         </Container>
         <p className="text-center fst-italic fw-lighter col-11 mx-auto">
           * Cliquez sur les différents panneaux pour avoir plus d'informations{" "}
-          <MousePointerClick />
+          <MousePointerClick size={20} />
         </p>
       </Container>
 

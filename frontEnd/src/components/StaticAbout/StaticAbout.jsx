@@ -1,5 +1,7 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./StaticAbout.css";
+
+import { MoveRight } from "lucide-react";
 
 const StaticAbout = () => {
   return (
@@ -24,6 +26,15 @@ const StaticAbout = () => {
             variées en intérieur comme en extérieur, selon leur rythme. Il y a
             aussi des temps calmes, de la lecture, et des moments de repos.
           </p>
+
+          <div className="d-flex justify-content-center mt-4">
+            <a
+              href="/about"
+              className="aboutlink btn btn-outline-dark d-flex align-items-center gap-2 px-4 py-2 rounded-pill fw-medium"
+            >
+              En apprendre plus <MoveRight size={20} />
+            </a>
+          </div>
         </Col>
       </Row>
     </Container>

@@ -1,3 +1,7 @@
+.text-justify {
+  text-align: justify;
+}
+
 .zoomable-img {
   cursor: zoom-in;
   transition: transform 0.3s;
