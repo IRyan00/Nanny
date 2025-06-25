@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import "./Footer.css";
 import {
   Container,
@@ -25,39 +25,34 @@ const Footer = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const [alert, setAlert] = React.useState(null);
-  const [isLoading, setIsLoading] = React.useState(false);
-
+  const [alert, setAlert] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const executeRecaptcha = useReCaptchaV3(VITE_RECAPTCHA_SITE_KEY);
 
   const onSubmit = async (data) => {
     setIsLoading(true);
-
     const token = await executeRecaptcha("contactForm");
+
     if (token) {
-      emailjs
-        .send(
+      try {
+        await emailjs.send(
           SERVICE_ID,
           TEMPLATE_ID,
           { ...data, "g-recaptcha-response": token },
           PUBLIC_KEY
-        )
-        .then(() => {
-          setAlert({
-            type: "success",
-            message: "Message envoyé !",
-          });
-        })
-        .catch(() => {
-          setAlert({
-            type: "danger",
-            message: "Échec de l'envoi du message.",
-          });
-        })
-        .finally(() => {
-          setIsLoading(false);
+        );
+        setAlert({
+          type: "success",
+          message: "Message envoyé !",
         });
+      } catch (error) {
+        setAlert({
+          type: "danger",
+          message: "Échec de l'envoi du message.",
+        });
+      } finally {
+        setIsLoading(false);
+      }
     } else {
       setAlert({ type: "danger", message: "Veuillez valider le recaptcha." });
       setIsLoading(false);

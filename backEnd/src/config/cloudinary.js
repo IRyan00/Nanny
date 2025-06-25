@@ -1,6 +1,6 @@
 import { v2 as cloudinary } from "cloudinary";
 
-// Check Cloudinary environment variables
+// CHECK VARIABLES
 if (
   !process.env.CLOUD_NAME ||
   !process.env.API_KEY ||
@@ -9,7 +9,7 @@ if (
   throw new Error("Missing Cloudinary environment variables");
 }
 
-// Create Cloudinary instance
+// CREATE INSTANCE
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.API_KEY,
